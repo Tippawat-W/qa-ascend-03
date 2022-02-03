@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.9.1 on win32)" generated="20220203 23:16:10.084" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.9.1 on win32)" generated="20220204 02:16:58.624" rpa="false" schemaversion="2">
 <suite id="s1" name="Loginsuccess" source="C:\Users\007\PycharmProjects\test-qa-ascend-03\loginsuccess.robot">
 <kw name="Open browser login page" library="resource" type="SETUP">
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${base_url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220203 23:16:10.258" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
-<status status="PASS" starttime="20220203 23:16:10.258" endtime="20220203 23:16:16.845"/>
+<msg timestamp="20220204 02:16:58.823" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
+<status status="PASS" starttime="20220204 02:16:58.823" endtime="20220204 02:17:06.007"/>
 </kw>
 <kw name="Title Should Be" library="Selenium2Library">
 <arg>The Internet</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20220203 23:16:16.854" level="INFO">Page title is 'The Internet'.</msg>
-<status status="PASS" starttime="20220203 23:16:16.846" endtime="20220203 23:16:16.854"/>
+<msg timestamp="20220204 02:17:06.012" level="INFO">Page title is 'The Internet'.</msg>
+<status status="PASS" starttime="20220204 02:17:06.007" endtime="20220204 02:17:06.012"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:10.258" endtime="20220203 23:16:16.854"/>
+<status status="PASS" starttime="20220204 02:16:58.822" endtime="20220204 02:17:06.013"/>
 </kw>
 <test id="s1-t1" name="Login Success">
 <kw name="Valid username" library="resource">
@@ -24,18 +24,18 @@
 <kw name="Element Should Be Enabled" library="Selenium2Library">
 <arg>name=username</arg>
 <doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220203 23:16:16.857" endtime="20220203 23:16:16.893"/>
+<status status="PASS" starttime="20220204 02:17:06.014" endtime="20220204 02:17:06.045"/>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <arg>name=username</arg>
 <arg>${usename}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220203 23:16:16.893" level="INFO">Typing text 'tomsmith' into text field 'name=username'.</msg>
-<status status="PASS" starttime="20220203 23:16:16.893" endtime="20220203 23:16:16.974"/>
+<msg timestamp="20220204 02:17:06.045" level="INFO">Typing text 'tomsmith' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20220204 02:17:06.045" endtime="20220204 02:17:06.128"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:16.856" endtime="20220203 23:16:16.974"/>
+<status status="PASS" starttime="20220204 02:17:06.014" endtime="20220204 02:17:06.128"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:16.856" endtime="20220203 23:16:16.974"/>
+<status status="PASS" starttime="20220204 02:17:06.013" endtime="20220204 02:17:06.128"/>
 </kw>
 <kw name="Valid password" library="resource">
 <kw name="Type in password" library="resource">
@@ -43,45 +43,66 @@
 <kw name="Element Should Be Enabled" library="Selenium2Library">
 <arg>name=password</arg>
 <doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220203 23:16:16.975" endtime="20220203 23:16:17.007"/>
+<status status="PASS" starttime="20220204 02:17:06.130" endtime="20220204 02:17:06.160"/>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <arg>name=password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220203 23:16:17.008" level="INFO">Typing text 'SuperSecretPassword!' into text field 'name=password'.</msg>
-<status status="PASS" starttime="20220203 23:16:17.007" endtime="20220203 23:16:17.105"/>
+<msg timestamp="20220204 02:17:06.160" level="INFO">Typing text 'SuperSecretPassword!' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20220204 02:17:06.160" endtime="20220204 02:17:06.264"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:16.975" endtime="20220203 23:16:17.105"/>
+<status status="PASS" starttime="20220204 02:17:06.129" endtime="20220204 02:17:06.265"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:16.974" endtime="20220203 23:16:17.106"/>
+<status status="PASS" starttime="20220204 02:17:06.129" endtime="20220204 02:17:06.265"/>
 </kw>
 <kw name="Submit Login" library="resource">
 <kw name="Click Element" library="Selenium2Library">
 <arg>//*[@id="login"]/button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220203 23:16:17.107" level="INFO">Clicking element '//*[@id="login"]/button'.</msg>
-<status status="PASS" starttime="20220203 23:16:17.106" endtime="20220203 23:16:18.098"/>
+<msg timestamp="20220204 02:17:06.266" level="INFO">Clicking element '//*[@id="login"]/button'.</msg>
+<status status="PASS" starttime="20220204 02:17:06.266" endtime="20220204 02:17:07.257"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:17.106" endtime="20220203 23:16:18.098"/>
+<status status="PASS" starttime="20220204 02:17:06.265" endtime="20220204 02:17:07.258"/>
 </kw>
 <kw name="Success page" library="resource">
 <kw name="Element Text Should Be" library="Selenium2Library">
-<arg>//*[@id="content"]/div/h2</arg>
-<arg>Secure Area</arg>
+<arg>//*[@id="flash"]</arg>
+<arg>You logged into a secure area!\n×</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<msg timestamp="20220203 23:16:18.101" level="INFO">Verifying element '//*[@id="content"]/div/h2' contains exact text 'Secure Area'.</msg>
-<status status="PASS" starttime="20220203 23:16:18.101" endtime="20220203 23:16:18.127"/>
+<msg timestamp="20220204 02:17:07.259" level="INFO">Verifying element '//*[@id="flash"]' contains exact text 'You logged into a secure area!
+×'.</msg>
+<status status="PASS" starttime="20220204 02:17:07.259" endtime="20220204 02:17:07.286"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:18.099" endtime="20220203 23:16:18.128"/>
+<status status="PASS" starttime="20220204 02:17:07.258" endtime="20220204 02:17:07.287"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:16.855" endtime="20220203 23:16:18.128"/>
+<kw name="Submit Logout" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://html/body/div[2]/div/div/a/i</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220204 02:17:07.288" level="INFO">Clicking element 'xpath://html/body/div[2]/div/div/a/i'.</msg>
+<status status="PASS" starttime="20220204 02:17:07.288" endtime="20220204 02:17:07.966"/>
+</kw>
+<status status="PASS" starttime="20220204 02:17:07.287" endtime="20220204 02:17:07.966"/>
+</kw>
+<kw name="Logout Success" library="resource">
+<kw name="Element Text Should Be" library="Selenium2Library">
+<arg>//*[@id="flash"]</arg>
+<arg>You logged out of the secure area!\n×</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220204 02:17:07.968" level="INFO">Verifying element '//*[@id="flash"]' contains exact text 'You logged out of the secure area!
+×'.</msg>
+<status status="PASS" starttime="20220204 02:17:07.967" endtime="20220204 02:17:07.988"/>
+</kw>
+<status status="PASS" starttime="20220204 02:17:07.967" endtime="20220204 02:17:07.988"/>
+</kw>
+<status status="PASS" starttime="20220204 02:17:06.013" endtime="20220204 02:17:07.989"/>
 </test>
 <kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220203 23:16:18.130" endtime="20220203 23:16:20.276"/>
+<status status="PASS" starttime="20220204 02:17:07.990" endtime="20220204 02:17:10.151"/>
 </kw>
-<status status="PASS" starttime="20220203 23:16:10.085" endtime="20220203 23:16:20.277"/>
+<status status="PASS" starttime="20220204 02:16:58.626" endtime="20220204 02:17:10.151"/>
 </suite>
 <statistics>
 <total>

@@ -38,7 +38,14 @@ Submit Login
     click element       //*[@id="login"]/button
 
 Success page
-    element text should be      //*[@id="content"]/div/h2        Secure Area
+    element text should be      //*[@id="flash"]        You logged into a secure area!\n×
+
+Submit Logout
+    click element       xpath://html/body/div[2]/div/div/a/i
+
+Logout Success
+    element text should be       //*[@id="flash"]        You logged out of the secure area!\n×
+
 
 Error page
     [Arguments]     ${usename}

@@ -10,4 +10,6 @@ Login Success
     Valid password
     Submit Login
     Success page
+    Submit Logout
+    Logout Success
 
