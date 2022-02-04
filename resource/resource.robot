@@ -9,7 +9,7 @@ Open browser login page
     title should be     The Internet
 
 User go to login with
-    [Documentation] Check textbox enable and input text on field
+    [Documentation] Check text box status enable and input text on field
     [Arguments]     ${usename}      ${password}
     element should be enabled       name=username
     input text      name=username      ${usename}
