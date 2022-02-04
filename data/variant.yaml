@@ -1,0 +1,6 @@
+Valid_User: tomsmith
+Valid_Pass: SuperSecretPassword!
+Incorrect_User: tomholland
+Incorrect_Pass: Password!
+base_url: http://the-internet.herokuapp.com/login
+browser: chrome

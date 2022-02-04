@@ -1,13 +1,6 @@
 *** Settings ***
 Library             Selenium2Library
-
-
-*** Variables ***
-${base_url}     http://the-internet.herokuapp.com/login
-${browser}      chrome
-${Valid_User}   tomsmith
-${Valid_Pass}   SuperSecretPassword!
-
+Variables           ../data/variant.yaml
 
 *** Keywords ***
 Open browser login page
@@ -18,39 +11,28 @@ Go to login page
     go to   ${base_url}
     title should be     The Internet
 
-Type in username
-    [Arguments]     ${usename}
+Use go to login with
+    [Arguments]     ${usename}      ${password}
     element should be enabled       name=username
     input text      name=username      ${usename}
-
-Valid username
-    Type in username    ${Valid_User}
-
-Type in password
-    [Arguments]     ${password}
     element should be enabled       name=password
     input text      name=password     ${password}
 
-Valid password
-    Type in password    ${Valid_Pass}
-
-Submit Login
+Click submit for login
     click element       //*[@id="login"]/button
 
-Success page
+Header should see result success page
     element text should be      //*[@id="flash"]        You logged into a secure area!\n×
 
-Submit Logout
+Click button for logout
     click element       xpath://html/body/div[2]/div/div/a/i
 
-Logout Success
+Header should see result logout page
     element text should be       //*[@id="flash"]        You logged out of the secure area!\n×
 
 
-Error page
+Header should see result error page
     [Arguments]     ${usename}
-    ${ID}=     Set Variable    ${usename}
-    ${T-ID}=   Set Variable    ${Valid_User}
-    ${PASS}=   Run Keyword And Ignore Error       Should Be Equal     ${ID}       ${T-ID}
+    ${PASS}=   Run Keyword And Ignore Error       Should Be Equal     ${usename}       ${Valid_User}
     run keyword if  ${PASS}=="TRUE"     element text should be     //*[@id="flash"]        Your password is invalid!\n×
     run keyword if  ${PASS}=="FAIL"     element text should be     //*[@id="flash"]        Your username is invalid!\n×
