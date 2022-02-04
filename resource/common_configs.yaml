@@ -1,0 +1,6 @@
+browser:
+  chrome: chrome
+  firefox: firefox
+
+base_url:
+  herokuapp: http://the-internet.herokuapp.com/login

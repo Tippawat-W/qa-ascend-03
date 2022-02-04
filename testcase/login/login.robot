@@ -1,5 +1,5 @@
 *** Settings ***
-Library             Selenium2Library
+Resource            ../resource/imports.robot
 Suite Setup         Open browser login page
 Suite Teardown      Close browser
 Resource            ../resource/resource.robot

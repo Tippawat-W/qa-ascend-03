@@ -1,7 +1,6 @@
 *** Settings ***
 Resource            ../resource/imports.robot
 Variables           ../data/variant.yaml
-Resource            ../page/open_website.robot
 
 *** Keywords ***
 Open browser login page

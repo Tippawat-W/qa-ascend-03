@@ -1,0 +1,7 @@
+username:
+  success: tomsmith
+  invalid: SuperSecretPassword!
+
+Password:
+  success: SuperSecretPassword!
+  invalid: Password!
