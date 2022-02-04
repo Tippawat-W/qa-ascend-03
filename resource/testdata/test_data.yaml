@@ -2,6 +2,6 @@ username:
   success: tomsmith
   invalid: SuperSecretPassword!
 
-Password:
+password:
   success: SuperSecretPassword!
   invalid: Password!

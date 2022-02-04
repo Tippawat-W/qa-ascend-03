@@ -1,1 +1,2 @@
-Library       Selenium2Library
+*** Settings ***
+Library     Selenium2Library

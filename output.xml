@@ -1,29 +1,305 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.9.1 on win32)" generated="20220204 23:11:12.296" rpa="false" schemaversion="2">
-<suite id="s1" name="Open Website" source="C:\Users\007\PycharmProjects\test-qa-ascend-03\keyword\website\page\open_website.robot">
-<test id="s1-t1" name="Open wesite">
-<kw name="Open Browser">
+<robot generator="Robot 4.1.2 (Python 3.9.1 on win32)" generated="20220205 00:28:18.646" rpa="false" schemaversion="2">
+<suite id="s1" name="Login New" source="C:\Users\007\PycharmProjects\test-qa-ascend-03\testcase\login\login_new.robot">
+<kw name="Open wesite" library="open_website" type="SETUP">
+<doc>Open website and check welcome page show</doc>
+<kw name="Open Browser" library="Selenium2Library">
 <arg>${base_url.herokuapp}</arg>
 <arg>${browser.chrome}</arg>
-<msg timestamp="20220204 23:11:12.323" level="FAIL">No keyword with name 'Open Browser' found.</msg>
-<status status="FAIL" starttime="20220204 23:11:12.323" endtime="20220204 23:11:12.323"/>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220205 00:28:18.833" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
+<status status="PASS" starttime="20220205 00:28:18.832" endtime="20220205 00:28:25.389"/>
 </kw>
-<status status="FAIL" starttime="20220204 23:11:12.322" endtime="20220204 23:11:12.324">No keyword with name 'Open Browser' found.</status>
+<kw name="Title Should Be" library="Selenium2Library">
+<arg>The Internet</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220205 00:28:25.395" level="INFO">Page title is 'The Internet'.</msg>
+<status status="PASS" starttime="20220205 00:28:25.390" endtime="20220205 00:28:25.395"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:18.831" endtime="20220205 00:28:25.395"/>
+</kw>
+<test id="s1-t1" name="Scenario: Login Success">
+<kw name="Given User go to login with" library="keyword_login">
+<arg>${username.success}</arg>
+<arg>${password.success}</arg>
+<doc>Check text box status enable and input text on field</doc>
+<kw name="Input username" library="login_page">
+<arg>${username}</arg>
+<doc>Check text box status enable and input username on field</doc>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<arg>${text_username}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220205 00:28:25.398" endtime="20220205 00:28:25.429"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${text_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:25.429" level="INFO">Typing text 'tomsmith' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20220205 00:28:25.429" endtime="20220205 00:28:25.510"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:25.397" endtime="20220205 00:28:25.510"/>
+</kw>
+<kw name="Input password" library="login_page">
+<arg>${password}</arg>
+<doc>Check text box status enable and input password on field</doc>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<arg>${text_password}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220205 00:28:25.511" endtime="20220205 00:28:25.548"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${text_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:25.548" level="INFO">Typing text 'SuperSecretPassword!' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20220205 00:28:25.548" endtime="20220205 00:28:25.652"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:25.510" endtime="20220205 00:28:25.652"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:25.396" endtime="20220205 00:28:25.652"/>
+</kw>
+<kw name="When Click submit for login" library="login_page">
+<doc>Click button for login</doc>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${button_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:25.654" level="INFO">Clicking element '//*[@id="login"]/button'.</msg>
+<status status="PASS" starttime="20220205 00:28:25.654" endtime="20220205 00:28:27.000"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:25.653" endtime="20220205 00:28:27.000"/>
+</kw>
+<kw name="Then Header should see result success page" library="susccess_login_page">
+<doc>Check header login success</doc>
+<kw name="Element Text Should Be" library="Selenium2Library">
+<arg>${header}</arg>
+<arg>You logged into a secure area!\n×</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220205 00:28:27.002" level="INFO">Verifying element '//*[@id="flash"]' contains exact text 'You logged into a secure area!
+×'.</msg>
+<status status="PASS" starttime="20220205 00:28:27.002" endtime="20220205 00:28:27.028"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:27.001" endtime="20220205 00:28:27.028"/>
+</kw>
+<kw name="And Click button for logout" library="susccess_login_page">
+<doc>Click button for logout</doc>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${button_logout}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:27.030" level="INFO">Clicking element 'xpath://html/body/div[2]/div/div/a/i'.</msg>
+<status status="PASS" starttime="20220205 00:28:27.029" endtime="20220205 00:28:28.007"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:27.029" endtime="20220205 00:28:28.007"/>
+</kw>
+<kw name="And Header should see result logout page" library="login_page">
+<doc>Check header logout success</doc>
+<kw name="Element Text Should Be" library="Selenium2Library">
+<arg>${Header}</arg>
+<arg>You logged out of the secure area!\n×</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220205 00:28:28.009" level="INFO">Verifying element '//*[@id="flash"]' contains exact text 'You logged out of the secure area!
+×'.</msg>
+<status status="PASS" starttime="20220205 00:28:28.008" endtime="20220205 00:28:28.029"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.008" endtime="20220205 00:28:28.029"/>
+</kw>
+<doc>Check Login and Welcome page</doc>
+<status status="PASS" starttime="20220205 00:28:25.395" endtime="20220205 00:28:28.030"/>
 </test>
-<status status="FAIL" starttime="20220204 23:11:12.298" endtime="20220204 23:11:12.326"/>
+<test id="s1-t2" name="Scenario: Login Fail Password Incorrect">
+<kw name="Given User go to login with" library="keyword_login">
+<arg>${username.success}</arg>
+<arg>${password.invalid}</arg>
+<doc>Check text box status enable and input text on field</doc>
+<kw name="Input username" library="login_page">
+<arg>${username}</arg>
+<doc>Check text box status enable and input username on field</doc>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<arg>${text_username}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220205 00:28:28.033" endtime="20220205 00:28:28.059"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${text_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:28.059" level="INFO">Typing text 'tomsmith' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20220205 00:28:28.059" endtime="20220205 00:28:28.135"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.033" endtime="20220205 00:28:28.135"/>
+</kw>
+<kw name="Input password" library="login_page">
+<arg>${password}</arg>
+<doc>Check text box status enable and input password on field</doc>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<arg>${text_password}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220205 00:28:28.136" endtime="20220205 00:28:28.160"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${text_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:28.160" level="INFO">Typing text 'Password!' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20220205 00:28:28.160" endtime="20220205 00:28:28.245"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.136" endtime="20220205 00:28:28.245"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.031" endtime="20220205 00:28:28.245"/>
+</kw>
+<kw name="When Click submit for login" library="login_page">
+<doc>Click button for login</doc>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${button_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:28.246" level="INFO">Clicking element '//*[@id="login"]/button'.</msg>
+<status status="PASS" starttime="20220205 00:28:28.246" endtime="20220205 00:28:28.927"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.246" endtime="20220205 00:28:28.927"/>
+</kw>
+<kw name="Then Header should see result error page" library="login_page">
+<arg>${username.success}</arg>
+<doc>Check header login failed</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<var>${PASS}</var>
+<arg>Should Be Equal</arg>
+<arg>${username}</arg>
+<arg>${Valid_User}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${username}</arg>
+<arg>${Valid_User}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20220205 00:28:28.930" level="FAIL">Variable '${Valid_User}' not found.</msg>
+<status status="FAIL" starttime="20220205 00:28:28.929" endtime="20220205 00:28:28.930"/>
+</kw>
+<msg timestamp="20220205 00:28:28.930" level="INFO">${PASS} = ('FAIL', "Variable '${Valid_User}' not found.")</msg>
+<status status="PASS" starttime="20220205 00:28:28.929" endtime="20220205 00:28:28.930"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${PASS}=="TRUE"</arg>
+<arg>element text should be</arg>
+<arg>${Header}</arg>
+<arg>Your password is invalid!\n×</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220205 00:28:28.930" endtime="20220205 00:28:28.935"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${PASS}=="FAIL"</arg>
+<arg>element text should be</arg>
+<arg>${Header}</arg>
+<arg>Your username is invalid!\n×</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220205 00:28:28.936" endtime="20220205 00:28:28.936"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.928" endtime="20220205 00:28:28.936"/>
+</kw>
+<doc>Check Login and Header Login Fail by Password Incorrect</doc>
+<status status="PASS" starttime="20220205 00:28:28.031" endtime="20220205 00:28:28.937"/>
+</test>
+<test id="s1-t3" name="Scenario: Login Fail Username Incorrect">
+<kw name="Given User go to login with" library="keyword_login">
+<arg>${username.invalid}</arg>
+<arg>${password.invalid}</arg>
+<doc>Check text box status enable and input text on field</doc>
+<kw name="Input username" library="login_page">
+<arg>${username}</arg>
+<doc>Check text box status enable and input username on field</doc>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<arg>${text_username}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220205 00:28:28.942" endtime="20220205 00:28:28.967"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${text_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:28.967" level="INFO">Typing text 'SuperSecretPassword!' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20220205 00:28:28.967" endtime="20220205 00:28:29.070"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.942" endtime="20220205 00:28:29.070"/>
+</kw>
+<kw name="Input password" library="login_page">
+<arg>${password}</arg>
+<doc>Check text box status enable and input password on field</doc>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<arg>${text_password}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220205 00:28:29.070" endtime="20220205 00:28:29.094"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${text_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:29.094" level="INFO">Typing text 'Password!' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20220205 00:28:29.094" endtime="20220205 00:28:29.174"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:29.070" endtime="20220205 00:28:29.175"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:28.941" endtime="20220205 00:28:29.175"/>
+</kw>
+<kw name="When Click submit for login" library="login_page">
+<doc>Click button for login</doc>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${button_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220205 00:28:29.176" level="INFO">Clicking element '//*[@id="login"]/button'.</msg>
+<status status="PASS" starttime="20220205 00:28:29.175" endtime="20220205 00:28:29.860"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:29.175" endtime="20220205 00:28:29.861"/>
+</kw>
+<kw name="Then Header should see result error page" library="login_page">
+<arg>${password.invalid}</arg>
+<doc>Check header login failed</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<var>${PASS}</var>
+<arg>Should Be Equal</arg>
+<arg>${username}</arg>
+<arg>${Valid_User}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${username}</arg>
+<arg>${Valid_User}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20220205 00:28:29.863" level="FAIL">Variable '${Valid_User}' not found.</msg>
+<status status="FAIL" starttime="20220205 00:28:29.862" endtime="20220205 00:28:29.863"/>
+</kw>
+<msg timestamp="20220205 00:28:29.863" level="INFO">${PASS} = ('FAIL', "Variable '${Valid_User}' not found.")</msg>
+<status status="PASS" starttime="20220205 00:28:29.862" endtime="20220205 00:28:29.863"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${PASS}=="TRUE"</arg>
+<arg>element text should be</arg>
+<arg>${Header}</arg>
+<arg>Your password is invalid!\n×</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220205 00:28:29.863" endtime="20220205 00:28:29.863"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${PASS}=="FAIL"</arg>
+<arg>element text should be</arg>
+<arg>${Header}</arg>
+<arg>Your username is invalid!\n×</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220205 00:28:29.864" endtime="20220205 00:28:29.864"/>
+</kw>
+<status status="PASS" starttime="20220205 00:28:29.861" endtime="20220205 00:28:29.864"/>
+</kw>
+<doc>Check Login and Header Login Fail by Username Incorrect</doc>
+<status status="PASS" starttime="20220205 00:28:28.940" endtime="20220205 00:28:29.865"/>
+</test>
+<status status="PASS" starttime="20220205 00:28:18.648" endtime="20220205 00:28:29.869"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Open Website">Open Website</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Login New">Login New</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20220204 23:11:12.319" level="ERROR">Error in file 'C:\Users\007\PycharmProjects\test-qa-ascend-03\keyword\website\page\open_website.robot' on line 2: Resource file '..\..\resource\imports.robot' does not exist.</msg>
-<msg timestamp="20220204 23:11:12.320" level="ERROR">Error in file 'C:\Users\007\PycharmProjects\test-qa-ascend-03\keyword\website\page\open_website.robot' on line 3: Variable file '..\..\resource\common_configs.yaml' does not exist.</msg>
 </errors>
 </robot>
