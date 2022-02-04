@@ -8,7 +8,7 @@ Open browser login page
     open browser    ${base_url}     ${browser}
     title should be     The Internet
 
-Use go to login with
+User go to login with
     [Documentation] Check textbox enable and input text on field
     [Arguments]     ${usename}      ${password}
     element should be enabled       name=username
